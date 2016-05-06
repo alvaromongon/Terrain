@@ -1,5 +1,5 @@
 # Terrain
-Terrain generator project + simple game and web client viewer
+Terrain generator + web client viewer and game
 
 This is a project to help me test new technologies and at the same time do something I like it.
 
