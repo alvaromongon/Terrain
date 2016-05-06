@@ -10,3 +10,10 @@ Technologies overview:
 - C# Implementation of services to access the generated terrain
 - WebApi implementation to access C# services throught the internet
 - Typescript implementation of the web client using babylon.js (http://www.babylonjs.com/) for 3d support
+
+
+Projects details:
+- ComplexTerrain: 
+  * VC++ Directories / Library Directories: F:\Personal\git\Terrain\noise\win32\Release;$(LibraryPath)
+- TerrainGenerator.WebClient:
+  * Typescript 1.6 
