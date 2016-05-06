@@ -1,0 +1,111 @@
+// Planet seed.  Change this to generate a different planet.
+CUR_SEED = 13121980
+
+// Frequency of the planet's continents.  Higher frequency produces smaller,
+// more numerous continents.  This value is measured in radians.
+CONTINENT_FREQUENCY = 8.0
+
+// Lacunarity of the planet's continents.  Changing this value produces
+// slightly different continents.  For the best results, this value should
+// be random, but close to 2.0.
+CONTINENT_LACUNARITY = 2.208984375
+
+// Define if the algorithm should generate rivers (1) (costly) or not (0)
+GENERATE_RIVERS = 1
+
+// Maximum depth of the rivers, in planetary elevation units.
+// Changing this value could cause problems calculating the biome, current maths working for a value of 0.05
+// Initial value 0.0234375;
+RIVER_DEPTH = 0.0001
+
+// Scaling to apply to the base continent elevations, in planetary elevation
+// units.
+// Initial value: 1.0 / 4.0
+CONTINENT_HEIGHT_SCALE = 0.5
+
+// **********************************************************************************************************
+// Detail of the terrain, a LOW detail level will ignore MOUNT, HILLS, PLAINS and BADLANDS related parameters
+// **********************************************************************************************************
+// 0=LOW / 1=MEDIUM / 2=HIGH
+DETAIL_LEVEL = 0
+
+// Lacunarity of the planet's mountains.  Changing this value produces
+// slightly different mountains.  For the best results, this value should
+// be random, but close to 2.0.
+MOUNTAIN_LACUNARITY = 2.142578125
+
+// Lacunarity of the planet's hills.  Changing this value produces slightly
+// different hills.  For the best results, this value should be random, but
+// close to 2.0.
+HILLS_LACUNARITY = 2.162109375
+
+// Lacunarity of the planet's plains.  Changing this value produces slightly
+// different plains.  For the best results, this value should be random, but
+// close to 2.0.
+PLAINS_LACUNARITY = 2.314453125
+
+// Lacunarity of the planet's badlands.  Changing this value produces
+// slightly different badlands.  For the best results, this value should be
+// random, but close to 2.0.
+BADLANDS_LACUNARITY = 2.212890625
+
+// Determines the amount of mountainous terrain that appears on the
+// planet.  Values range from 0.0 (no mountains) to 1.0 (all terrain is
+// covered in mountains).  Mountainous terrain will overlap hilly terrain.
+// Because the badlands terrain may overlap parts of the mountainous
+// terrain, setting MOUNTAINS_AMOUNT to 1.0 may not completely cover the
+// terrain in mountains.
+// Initial value: 0.5
+MOUNTAINS_AMOUNT = 0.5
+
+// Determines the amount of hilly terrain that appears on the planet.
+// Values range from 0.0 (no hills) to 1.0 (all terrain is covered in
+// hills).  This value must be less than MOUNTAINS_AMOUNT.  Because the
+// mountainous terrain will overlap parts of the hilly terrain, and
+// the badlands terrain may overlap parts of the hilly terrain, setting
+// HILLS_AMOUNT to 1.0 may not completely cover the terrain in hills.
+// Initial calculated value:  (1.0 + MOUNTAINS_AMOUNT) / 2.0;
+HILLS_AMOUNT = 0.75
+
+// Determines the amount of badlands terrain that covers the planet.
+// Values range from 0.0 (no badlands) to 1.0 (all terrain is covered in
+// badlands.)  Badlands terrain will overlap any other type of terrain.
+// Initial value: 0.03125
+BADLANDS_AMOUNT = 0.03125
+
+// Minimum number of surrounder rivers that provoca flooding in a given point
+MIN_SURROUNDER_RIVERS_FOR_FLOODING = 2
+
+// Minimum percentage of altitude different between two points to consider the terrain as sloped
+// Sloped terrain does not have vegetation and is marked with a different identifier
+// Initial value: 0.25
+SLOPE_IDENTIFICATOR = 0.40
+
+// Initial vegetation probability to play with
+//Initial value: (float)1 / 9;
+VEGETATION_PROBABILITY = 0.11111111119F
+
+// Maximum altitude that can contain vegetation
+ALTITUDE_VEGETATION_MAX_LINE = 0.70
+
+// Minimum altitude that contains vegetation
+ALTITUDE_VEGETATION_MIN_LINE = 0.05
+
+// Altitude at which the percentage of vegetation 
+// stop growing with the altitude and start decreasing
+ALTITUDE_VEGETATION_TREND_CHANGE_LINE = 0.50
+
+UNDER_SEA_TERRAIN_TYPE = -100
+RIVER_TERRAIN_TYPE = -200
+RIVER_BY_FLOODING_TERRAIN_TYPE = -210
+ARTIC_ALPINE_TERRAIN_TYPE = 100
+TUNDRA_TERRAIN_TYPE = 110
+TAIGA_TERRAIN_TYPE = 200
+WOODLAND_TERRAIN_TYPE = 300
+SAVANNA_TERRAIN_TYPE = 310
+THOM_FOREST_TERRAIN_TYPE = 320
+TEMPERATE_DECIDUOUS_FOREST_TERRAIN_TYPE = 400
+TROPICAL_MONTANE_FOREST_TERRAIN_TYPE = 410
+DRY_FOREST_TERRAIN_TYPE = 500
+TROPICAL_RAIN_FOREST_TERRAIN_TYPE = 510
+DESERT_TERRAIN_TYPE = 600

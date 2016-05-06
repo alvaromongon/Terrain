@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8DF55658-ED31-44C3-82B2-F80DE6C97BC0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TerrainGenerator.WebClient</RootNamespace>
+    <AssemblyName>TerrainGenerator.WebClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabases>true</PublishDatabases>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=__MvcPagesVersion__, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Buildings\Thatched.jpg" />
+    <Content Include="Assets\Icons\buildings\thatchedHut.png" />
+    <Content Include="Assets\Icons\Flare.png" />
+    <Content Include="Assets\Icons\ham.png" />
+    <Content Include="Assets\Icons\hacha.png" />
+    <Content Include="Assets\Icons\face.png" />
+    <Content Include="Assets\Icons\hammer.png" />
+    <Content Include="Assets\Icons\noBuilding.png" />
+    <Content Include="Assets\Icons\Red_triangle.png" />
+    <Content Include="Assets\Icons\stoneBlock.png" />
+    <Content Include="Assets\Icons\log.png" />
+    <Content Include="Assets\People\0.jpg" />
+    <Content Include="Assets\People\1.jpg" />
+    <Content Include="Assets\People\2.jpg" />
+    <Content Include="Assets\People\3.jpg" />
+    <Content Include="Assets\skybox\CloudyLightRays_nx.jpg" />
+    <Content Include="Assets\skybox\CloudyLightRays_ny.jpg" />
+    <Content Include="Assets\skybox\CloudyLightRays_nz.jpg" />
+    <Content Include="Assets\skybox\CloudyLightRays_px.jpg" />
+    <Content Include="Assets\skybox\CloudyLightRays_py.jpg" />
+    <Content Include="Assets\skybox\CloudyLightRays_pz.jpg" />
+    <Content Include="Assets\skybox\night_nx.jpg" />
+    <Content Include="Assets\skybox\night_ny.jpg" />
+    <Content Include="Assets\skybox\night_nz.jpg" />
+    <Content Include="Assets\skybox\night_px.jpg" />
+    <Content Include="Assets\skybox\night_py.jpg" />
+    <Content Include="Assets\skybox\night_pz.jpg" />
+    <Content Include="Assets\skybox\skybox_nx.jpg" />
+    <Content Include="Assets\skybox\skybox_ny.jpg" />
+    <Content Include="Assets\skybox\skybox_nz.jpg" />
+    <Content Include="Assets\skybox\skybox_px.jpg" />
+    <Content Include="Assets\skybox\skybox_py.jpg" />
+    <Content Include="Assets\skybox\skybox_pz.jpg" />
+    <Content Include="Assets\skybox\snow_nx.jpg" />
+    <Content Include="Assets\skybox\snow_ny.jpg" />
+    <Content Include="Assets\skybox\snow_nz.jpg" />
+    <Content Include="Assets\skybox\snow_px.jpg" />
+    <Content Include="Assets\skybox\snow_py.jpg" />
+    <Content Include="Assets\skybox\snow_pz.jpg" />
+    <Content Include="Assets\skybox\TropicalSunnyDay_nx.jpg" />
+    <Content Include="Assets\skybox\TropicalSunnyDay_ny.jpg" />
+    <Content Include="Assets\skybox\TropicalSunnyDay_nz.jpg" />
+    <Content Include="Assets\skybox\TropicalSunnyDay_px.jpg" />
+    <Content Include="Assets\skybox\TropicalSunnyDay_py.jpg" />
+    <Content Include="Assets\skybox\TropicalSunnyDay_pz.jpg" />
+    <Content Include="Assets\Sounds\axe_chopping_tree.mp3" />
+    <Content Include="Assets\Sounds\hammer_hitting_nail_into_wood.mp3" />
+    <Content Include="Assets\Sounds\tree_falls_down.mp3" />
+    <Content Include="Assets\Terrain\artic.jpg" />
+    <Content Include="Assets\Terrain\blend.png" />
+    <Content Include="Assets\Terrain\bump.png" />
+    <Content Include="Assets\Terrain\cliff.jpg" />
+    <Content Include="Assets\Terrain\deciduous.jpg" />
+    <Content Include="Assets\Terrain\dessert.jpg" />
+    <Content Include="Assets\Terrain\dry.jpg" />
+    <Content Include="Assets\Terrain\grass.jpg" />
+    <Content Include="Assets\Terrain\Ground.jpg" />
+    <Content Include="Assets\Terrain\rock.jpg" />
+    <Content Include="Assets\Terrain\Sand.jpg" />
+    <Content Include="Assets\Terrain\savanna.jpg" />
+    <Content Include="Assets\Terrain\Snow.jpg" />
+    <Content Include="Assets\Terrain\taiga.jpg" />
+    <Content Include="Assets\Terrain\thom.jpg" />
+    <Content Include="Assets\Terrain\tropicalMontane.jpg" />
+    <Content Include="Assets\Terrain\tropicalRain.jpg" />
+    <Content Include="Assets\Terrain\tundra.jpg" />
+    <Content Include="Assets\Terrain\woodland.jpg" />
+    <Content Include="Assets\Trees\t1_b.bmp" />
+    <Content Include="Assets\Trees\t1_c.tga" />
+    <Content Include="Assets\Trees\t2_b.bmp" />
+    <Content Include="Assets\Trees\t2_c.tga" />
+    <Content Include="Assets\Trees\t3_b.bmp" />
+    <Content Include="Assets\Trees\t3_c.tga" />
+    <Content Include="Assets\Trees\t4_b.bmp" />
+    <Content Include="Assets\Trees\t4_c.tga" />
+    <Content Include="Assets\Trees\t5_b.bmp" />
+    <Content Include="Assets\Trees\t5_c.tga" />
+    <Content Include="Assets\Trees\t6_b.bmp" />
+    <Content Include="Assets\Trees\t6_c.tga" />
+    <Content Include="Assets\Trees\t7_b.bmp" />
+    <Content Include="Assets\Trees\t7_c.tga" />
+    <Content Include="Assets\Trees\tree_100.png" />
+    <Content Include="Assets\Trees\tree_110.png" />
+    <Content Include="Assets\Trees\tree_200.png" />
+    <Content Include="Assets\Trees\tree_300.png" />
+    <Content Include="Assets\Trees\tree_310.png" />
+    <Content Include="Assets\Trees\tree_320.png" />
+    <Content Include="Assets\Trees\tree_400.png" />
+    <Content Include="Assets\Trees\tree_410.png" />
+    <Content Include="Assets\Trees\tree_500.png" />
+    <Content Include="Assets\Trees\tree_510.png" />
+    <Content Include="Assets\Trees\tree_600.png" />
+    <Content Include="Content\BasicConventions.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="index.cshtml" />
+    <Content Include="Scripts\babylon.2.2.js" />
+    <Content Include="Scripts\babylon.2.2.max.js" />
+    <Content Include="Scripts\babylon.2.2.noworker.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Assets\People\dude.babylon" />
+    <Content Include="Assets\Trees\tree_0.babylon" />
+    <Content Include="Assets\Trees\tree_1.babylon" />
+    <Content Include="Assets\Trees\tree_2.babylon" />
+    <Content Include="Assets\Trees\tree_3.babylon" />
+    <Content Include="Assets\Trees\tree_4.babylon" />
+    <Content Include="Assets\Trees\tree_5.babylon" />
+    <Content Include="Assets\Trees\tree_6.babylon" />
+    <None Include="Properties\PublishProfiles\wtwd azure.pubxml" />
+    <None Include="Properties\PublishProfiles\wtwd.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\hand.minified-1.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery.validate.js" />
+    <None Include="Scripts\jquery.validate.min.js" />
+    <None Include="Scripts\jquery.validate.unobtrusive.js" />
+    <None Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <None Include="Scripts\knockout-3.3.0.debug.js" />
+    <None Include="Scripts\knockout-3.3.0.js" />
+    <None Include="Scripts\modernizr-2.6.2.js" />
+    <None Include="Scripts\Oimo.js" />
+    <None Include="Scripts\poly2tri.js" />
+    <None Include="Scripts\respond.js" />
+    <None Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\jquery.mousewheel.js" />
+    <Content Include="Scripts\jquery.mousewheel.min.js" />
+    <Content Include="Scripts\Utilities\CanvasExtensions.js" />
+    <Content Include="Scripts\Utilities\forEachSupport.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Shaders\terrain.fragment.fx" />
+    <Content Include="Shaders\terrain.vertex.fx" />
+    <Content Include="Shaders\water.fragment.fx" />
+    <Content Include="Shaders\water.vertex.fx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\Account\AccountManager.ts" />
+    <TypeScriptCompile Include="Scripts\Actions\ActionsQueue.ts" />
+    <TypeScriptCompile Include="Scripts\Actions\IAction.ts" />
+    <TypeScriptCompile Include="Scripts\Localization\en-GB.ts" />
+    <TypeScriptCompile Include="Scripts\Localization\LocalizationManager.ts" />
+    <TypeScriptCompile Include="Scripts\MapElements\MapElementType.ts" />
+    <TypeScriptCompile Include="Scripts\Models\MasterModelsContainer.ts" />
+    <TypeScriptCompile Include="Scripts\Models\ModelsContainerManager.ts" />
+    <TypeScriptCompile Include="Scripts\Models\ElementedResourcedInstanceModel.ts" />
+    <TypeScriptCompile Include="Scripts\Models\ResourcedInstanceModel.ts" />
+    <TypeScriptCompile Include="Scripts\Sounds\SoundsContainer.ts" />
+    <TypeScriptCompile Include="Scripts\Synchronizer\ISynchronizeResponse.ts" />
+    <TypeScriptCompile Include="Scripts\Resources\IResourceUpdate.ts" />
+    <TypeScriptCompile Include="Scripts\Account\IToken.ts" />
+    <TypeScriptCompile Include="Scripts\Resources\Resource.ts" />
+    <TypeScriptCompile Include="Scripts\Resources\ResourcesManager.ts" />
+    <TypeScriptCompile Include="Scripts\Synchronizer\SynchronizerManager.ts" />
+    <TypeScriptCompile Include="Scripts\Models\AnimalModelsContainer.ts" />
+    <TypeScriptCompile Include="Scripts\Models\BaseModelsContainer.ts" />
+    <TypeScriptCompile Include="Scripts\Models\BasicGeometryModel.ts" />
+    <TypeScriptCompile Include="Scripts\Models\ComplexGeometryModel.ts" />
+    <TypeScriptCompile Include="Scripts\Models\BaseInstanceModel.ts" />
+    <TypeScriptCompile Include="Scripts\Models\BaseModel.ts" />
+    <TypeScriptCompile Include="Scripts\Environment\Sky.ts" />
+    <TypeScriptCompile Include="Scripts\Environment\Water.ts" />
+    <TypeScriptCompile Include="Scripts\HttpClients\AccountHttpClient.ts" />
+    <TypeScriptCompile Include="Scripts\HttpClients\BaseHttpClient.ts" />
+    <TypeScriptCompile Include="Scripts\HttpClients\SystemHttpClient.ts" />
+    <TypeScriptCompile Include="Scripts\Loaders\EngineLoader.ts" />
+    <TypeScriptCompile Include="Scripts\Loaders\SystemLoader.ts" />
+    <TypeScriptCompile Include="Scripts\Materials\TerrainMaterial.ts" />
+    <TypeScriptCompile Include="Scripts\Materials\WaterMaterial.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\CoordinateSystemHelps.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\ICell.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\ITileCell.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\ITileData.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\ITilePosition.ts" />
+    <TypeScriptCompile Include="Scripts\System\ISystemConfiguration.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\ITilesManager.ts" />
+    <TypeScriptCompile Include="Scripts\Models\PositionedElementedResourcedInstanceModel.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\Tile.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\TileImage.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\TilesManager.ts" />
+    <TypeScriptCompile Include="Scripts\typings\babylon.2.2.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
+    <TypeScriptCompile Include="Scripts\UI\CameraManager.ts" />
+    <TypeScriptCompile Include="Scripts\UI\UIHtmlMethods.ts" />
+    <TypeScriptCompile Include="Scripts\UI\UiManager.ts" />
+    <TypeScriptCompile Include="Scripts\Utilities\CountDownEvent.ts" />
+    <TypeScriptCompile Include="Scripts\Utilities\Dictionary.ts" />
+    <TypeScriptCompile Include="Scripts\Utilities\EventObject.ts" />
+    <TypeScriptCompile Include="Scripts\Utilities\StringHelper.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>35046</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:35029/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

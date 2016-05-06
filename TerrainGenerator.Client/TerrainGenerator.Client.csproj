@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{958F2234-B75F-4F26-B079-D5545FD6377B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TerrainGenerator.Client</RootNamespace>
+    <AssemblyName>TerrainGenerator.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Icons\foodIcon.png" />
+    <Content Include="Assets\Icons\populationIcon.png" />
+    <Content Include="Assets\Icons\stoneIcon.png" />
+    <Content Include="Assets\Icons\woodIcon.png" />
+    <Content Include="Assets\People\0.jpg" />
+    <Content Include="Assets\People\1.jpg" />
+    <Content Include="Assets\People\2.jpg" />
+    <Content Include="Assets\People\3.jpg" />
+    <Content Include="Assets\Spaceship\0.png" />
+    <Content Include="Assets\Trees\t1_b.bmp" />
+    <Content Include="Assets\Trees\t2_b.bmp" />
+    <Content Include="Assets\Trees\t3_b.bmp" />
+    <Content Include="Assets\Trees\t4_b.bmp" />
+    <Content Include="Assets\Trees\t5_b.bmp" />
+    <Content Include="Assets\Trees\t6_b.bmp" />
+    <Content Include="Assets\Trees\t7_b.bmp" />
+    <Content Include="index.html" />
+    <Content Include="Landed.html" />
+    <Content Include="Resources\MiniMap\ContinentFrecuency3.0_large.bmp" />
+    <Content Include="Resources\MiniMap\ContinentFrecuency3.0_small.bmp" />
+    <Content Include="Scripts\babylon.2.0-alpha.debug.js" />
+    <Content Include="Scripts\babylon.js" />
+    <Content Include="Scripts\babylon.max.js" />
+    <Content Include="Scripts\Utilities\forEachSupport.js" />
+    <TypeScriptCompile Include="Scripts\Account\AccountManager.ts" />
+    <TypeScriptCompile Include="Scripts\Account\IAccountManager.ts" />
+    <TypeScriptCompile Include="Scripts\Account\Model\IToken.ts" />
+    <TypeScriptCompile Include="Scripts\EngineLoader.ts" />
+    <TypeScriptCompile Include="Scripts\HttpClients\AccountHttpClient.ts" />
+    <TypeScriptCompile Include="Scripts\SystemLoader.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\ITileData.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\lib.d.ts" />
+    <Content Include="Scripts\hand-1.3.8.js" />
+    <Content Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Shaders\skybox\skybox_nx.jpg" />
+    <Content Include="Shaders\skybox\skybox_ny.jpg" />
+    <Content Include="Shaders\skybox\skybox_nz.jpg" />
+    <Content Include="Shaders\skybox\skybox_px.jpg" />
+    <Content Include="Shaders\skybox\skybox_py.jpg" />
+    <Content Include="Shaders\skybox\skybox_pz.jpg" />
+    <Content Include="Shaders\Terrain\blend.png" />
+    <Content Include="Shaders\Terrain\bump.png" />
+    <Content Include="Shaders\Terrain\grass.jpg" />
+    <Content Include="Shaders\Terrain\Ground.jpg" />
+    <Content Include="Shaders\Terrain\rock.jpg" />
+    <Content Include="Shaders\Terrain\Sand.jpg" />
+    <Content Include="Shaders\Terrain\Snow.jpg" />
+    <Content Include="Shaders\Terrain\terrain.fragment.fx" />
+    <Content Include="Shaders\Terrain\terrain.vertex.fx" />
+    <Content Include="Shaders\Terrain\tester.fragment.fx" />
+    <Content Include="Shaders\Terrain\tester.vertex.fx" />
+    <Content Include="Shaders\Terrain\water.fragment.fx" />
+    <Content Include="Shaders\Terrain\water.vertex.fx" />
+    <Content Include="Style\BasicConventions.css" />
+    <Content Include="Style\Canvas.css" />
+    <TypeScriptCompile Include="Scripts\Utilities\StringHelper.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\D3Models\Base3DModelsContainer.ts" />
+    <TypeScriptCompile Include="Scripts\D3Models\Animal3DModelsContainer.ts" />
+    <TypeScriptCompile Include="Scripts\Account\IResourcesManager.ts" />
+    <TypeScriptCompile Include="Scripts\Account\Model\IResource.ts" />
+    <TypeScriptCompile Include="Scripts\Account\Model\IAccountSynchronizerResponse.ts" />
+    <TypeScriptCompile Include="Scripts\Account\Model\IWorker.ts" />
+    <TypeScriptCompile Include="Scripts\Account\Model\Resource.ts" />
+    <TypeScriptCompile Include="Scripts\Account\Model\Worker.ts" />
+    <TypeScriptCompile Include="Scripts\Account\ResourceManager.ts" />
+    <TypeScriptCompile Include="Scripts\Account\WorkersManager.ts" />
+    <TypeScriptCompile Include="Scripts\Account\IWorkersManager.ts" />
+    <TypeScriptCompile Include="Scripts\Account\Model\IWorkersAllocation.ts" />
+    <TypeScriptCompile Include="Scripts\Account\Model\WorkersAllocation.ts" />
+    <TypeScriptCompile Include="Scripts\Account\SynchronizerManager.ts" />
+    <TypeScriptCompile Include="Scripts\Environment\Sky.ts" />
+    <TypeScriptCompile Include="Scripts\Environment\Animal.ts" />
+    <TypeScriptCompile Include="Scripts\Environment\Tree.ts" />
+    <TypeScriptCompile Include="Scripts\HttpClients\BaseHttpClient.ts" />
+    <TypeScriptCompile Include="Scripts\Materials\WaterMaterial.ts" />
+    <TypeScriptCompile Include="Scripts\D3Models\Vegetation3DModelsContainer.ts" />
+    <TypeScriptCompile Include="Scripts\Environment\Water.ts" />
+    <TypeScriptCompile Include="Scripts\D3Models\I3DModel.ts" />
+    <TypeScriptCompile Include="Scripts\D3Models\I3DModelsContainer.ts" />
+    <TypeScriptCompile Include="Scripts\Materials\TerrainMaterial.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\CoordinateSystemHelps.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\ITileCell.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\ITilePosition.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\ITilesConfiguration.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\ITilesManager.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\TileImage.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\Tile.ts" />
+    <TypeScriptCompile Include="Scripts\HttpClients\TilesHttpClient.ts" />
+    <TypeScriptCompile Include="Scripts\Tiles\TilesManager.ts" />
+    <TypeScriptCompile Include="Scripts\typings\babylon.2.0.d.ts" />
+    <TypeScriptCompile Include="Scripts\Utilities\CountDownEvent.ts" />
+    <TypeScriptCompile Include="Scripts\Utilities\EventObject.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\People\dude.babylon" />
+    <None Include="Assets\Spaceship\Spaceship.babylon" />
+    <None Include="Assets\Trees\t1_c.tga" />
+    <None Include="Assets\Trees\t2_c.tga" />
+    <None Include="Assets\Trees\t3_c.tga" />
+    <None Include="Assets\Trees\t4_c.tga" />
+    <None Include="Assets\Trees\t5_c.tga" />
+    <None Include="Assets\Trees\t6_c.tga" />
+    <None Include="Assets\Trees\t7_c.tga" />
+    <None Include="Assets\Trees\tree_0.babylon" />
+    <None Include="Assets\Trees\tree_1.babylon" />
+    <None Include="Assets\Trees\tree_2.babylon" />
+    <None Include="Assets\Trees\tree_3.babylon" />
+    <None Include="Assets\Trees\tree_4.babylon" />
+    <None Include="Assets\Trees\tree_5.babylon" />
+    <None Include="Assets\Trees\tree_6.babylon" />
+    <None Include="packages.config" />
+    <None Include="Scripts\jquery-2.1.4.min.map" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86C9B497-7981-4903-B94B-36D256993483}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TerrainGenerator.Services</RootNamespace>
+    <AssemblyName>TerrainGenerator.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationKeys.cs" />
+    <Compile Include="Contracts\Account.cs" />
+    <Compile Include="Contracts\AccountMetadata\AccountSynchronization.cs" />
+    <Compile Include="Contracts\AccountMetadata\IAccountSynchronization.cs" />
+    <Compile Include="Contracts\ActionRule.cs" />
+    <Compile Include="Contracts\ActionType.cs" />
+    <Compile Include="Contracts\Action.cs" />
+    <Compile Include="Contracts\AccountMetadata\IWorkersAllocation.cs" />
+    <Compile Include="Contracts\TimedAction.cs" />
+    <Compile Include="Contracts\MapElementType.cs" />
+    <Compile Include="Contracts\ResourceType.cs" />
+    <Compile Include="Contracts\AccountMetadata\Worker.cs" />
+    <Compile Include="Contracts\CellMetadata.cs" />
+    <Compile Include="Contracts\ColorGradientPoint.cs" />
+    <Compile Include="Contracts\DemoAccount.cs" />
+    <Compile Include="Contracts\ResourceStock.cs" />
+    <Compile Include="Implementations\AccountNotificationService.cs" />
+    <Compile Include="Implementations\AccountsManager.cs" />
+    <Compile Include="Implementations\AccountSynchronizationService.cs" />
+    <Compile Include="Implementations\ActionRulesService.cs" />
+    <Compile Include="Implementations\ExistingTilesPositionService.cs" />
+    <Compile Include="Implementations\MapColorGeneratorService.cs" />
+    <Compile Include="Implementations\Storage\AccountFileStorage.cs" />
+    <Compile Include="Implementations\Storage\ActionRulesFileStorage.cs" />
+    <Compile Include="Implementations\Storage\BaseFileStorage.cs" />
+    <Compile Include="Implementations\Storage\LoggerFileStorage.cs" />
+    <Compile Include="Interfaces\Internals\IAccountNotificationService.cs" />
+    <Compile Include="Interfaces\Internals\IAccountStorage.cs" />
+    <Compile Include="Implementations\Storage\TilesFileStorage.cs" />
+    <Compile Include="Implementations\TileAdjustmentService.cs" />
+    <Compile Include="Implementations\TilesManager.cs" />
+    <Compile Include="Implementations\TilesGeneratorService.cs" />
+    <Compile Include="Interfaces\Internals\IAccountSynchronizationService.cs" />
+    <Compile Include="Interfaces\Internals\ILogger.cs" />
+    <Compile Include="Interfaces\Publics\IActionRulesService.cs" />
+    <Compile Include="Interfaces\Internals\IMapColorGeneratorService.cs" />
+    <Compile Include="Interfaces\Publics\IActionRulesStorage.cs" />
+    <Compile Include="Interfaces\Publics\IPositionService.cs" />
+    <Compile Include="Implementations\RandomPositionService.cs" />
+    <Compile Include="Interfaces\Publics\IAccountsManager.cs" />
+    <Compile Include="Interfaces\Internals\ITileAdjustmentService.cs" />
+    <Compile Include="Interfaces\Internals\ITilesGeneratorService.cs" />
+    <Compile Include="Interfaces\Publics\ITilesManager.cs" />
+    <Compile Include="Contracts\BuildTileParameters.cs" />
+    <Compile Include="Contracts\CellStruct.cs" />
+    <Compile Include="Contracts\TileInformation.cs" />
+    <Compile Include="Contracts\TilePosition.cs" />
+    <Compile Include="Contracts\TileMetadata.cs" />
+    <Compile Include="Interfaces\Internals\ITilesStorage.cs" />
+    <Compile Include="ServicesFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ColorInterpolation.cs" />
+    <Compile Include="Utils\FilePathsFactory.cs" />
+    <Compile Include="Utils\LockFactory.cs" />
+    <Compile Include="Workers\AccountsSynchronizationWorker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ComplexTerrain\ComplexTerrain.vcxproj">
+      <Project>{d96e324d-4ba6-4af0-bc95-50b1d5bd6a43}</Project>
+      <Name>ComplexTerrain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

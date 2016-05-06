@@ -1,0 +1,134 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Terrain generator</title>
+    <script type="text/javascript">
+        function writeViewPort() {
+            var ua = navigator.userAgent;
+            if (ua.indexOf("Android") >= 0 && ua.indexOf("AppleWebKit") >= 0) {
+                var webkitVersion = parseFloat(ua.slice(ua.indexOf("AppleWebKit") + 12));
+                // targets android browser, not chrome browser (http://jimbergman.net/webkit-version-in-android-version/)
+                if (webkitVersion < 535) {
+                    document.write('<meta name="viewport" content="initial-scale=1" />');
+                }
+            }
+        }        
+
+        writeViewPort();
+
+        function GetURLParameter(sParam)
+        {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) 
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) 
+                {
+                    return sParameterName[1];
+                }
+            }
+
+            return null;
+        };
+
+        function GetAnonymousUrl() {
+            var anonymousUrl = document.URL;
+
+            if (anonymousUrl.indexOf("?mode=anonymous") < 0) {
+                if (anonymousUrl.indexOf("index.cshtml") > 0) {
+                    anonymousUrl += '?mode=anonymous';
+                } else {
+                    if (anonymousUrl.lastIndexOf('/') != anonymousUrl.length - 1) {
+                        anonymousUrl += '/index.cshtml?mode=' + Terrain.SystemLoader.anonymousMode;
+                    } else {
+                        anonymousUrl += 'index.cshtml?mode=' + Terrain.SystemLoader.anonymousMode;
+                    }
+                }
+            }            
+
+            return anonymousUrl;
+        };
+
+        window.onload = function () {
+            var mode = GetURLParameter('mode');
+
+            var information = document.getElementById("information");
+            var registeringForm = document.getElementById("registeringForm");
+            var loggingForm = document.getElementById("loggingForm");
+
+            Terrain.SystemLoader.GetInstance(information, registeringForm, loggingForm).Load(mode);
+        };
+    </script>
+    @Styles.Render("~/bundles/css")
+    @Scripts.Render("~/bundles/bootstrap")   
+    @Scripts.Render("~/bundles/app")   
+</head>
+<body>
+    <div id="LogInControls">
+        <div id="information" class="hidden">Your browser does not support WebGL :(</div>
+        <form id="registeringForm" name="register" class="hidden logInForm">
+            Email: <input type="email" name="accountEmail" />
+            Password: <input type="password" name="accountPassword" />
+            Confirm password: <input type="password" name="confirmAccountPassword" />
+            <input type="button" onclick="Terrain.SystemLoader.GetInstance().Register(this.form);" value="Register" />
+            <input type="reset" value="Reset" />
+            <input type="button" onclick="Terrain.SystemLoader.GetInstance().Registered();" value="Cancel" />            
+        </form>
+        <form id="loggingForm" name="login" class="hidden logInForm">
+            Email: <input type="email" name="accountEmail" />
+            Password: <input type="password" name="accountPassword" />
+            <input type="button" onclick="Terrain.SystemLoader.GetInstance().LogIn(this.form);" value="Login" />
+            <input type="reset" value="Reset" />
+            <input type="button" onclick="Terrain.SystemLoader.GetInstance().NotRegistered();" value="Register" />
+            <input type="button" onclick="location.href = GetAnonymousUrl();" value="Go anonymous" />
+        </form>
+    </div>    
+    
+    <div id="Eginecontrols" class="hidden">    
+        <canvas id="renderCanvas"></canvas>
+        <div id="message"></div>
+        <div id="fps"></div>
+        <div id="currentPositionTerrainAltitude"></div>
+        <button id="debugLayerBt" type="button" onclick="Terrain.EngineLoader.Instance.DebugMode();">Debug</button>
+        <button id="swiftCameraBt" type="button" onclick="Terrain.UI.CameraManager.GetInstance().SwiftActiveCamera();">Camera</button>
+        <button id="swiftTouchMouseBt" type="button" onclick="Terrain.UI.UiManager.GetInstance().SwiftTouchMouseDevice();">Touch/Mouse</button>
+        <div id="miniMapBar" class="verticalBar leftBar" ondblclick="Terrain.UI.Slide('#miniMapBar', Terrain.UI.Horientation.vertical, Terrain.UI.Direction.left);">
+            <div class="bottomFloat pointable">
+                <img id="imageMiniMap" class="verticalBarImage" alt="" />
+                <img id="redTriangle" class="hidden" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAA0CAYAAADi1poDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9kCDQkqGXWeM50AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAGHRFWHRTb2Z0d2FyZQBwYWludC5uZXQgNC4wLjVlhTJlAAABjklEQVRYR83UwU3EMBCF4UjcaYE6KIRCaIRCKIQ6aIE7EnikbGQ//07GXpvh8B3ytNnJ6d9+tu1fwTESjpFwjIRjJBwj4RgJx0g4RsofPpKfIHa7+qCXhH78F+x29UEPyWdCL6xkN+129UHmNaGXVrKbxzfkH2Mek6+EXlzBbtnN4xvyj7l5S+jlFexWcb942D0l3wn9wUx2w24V94uHzHtCfzKT3ahuV8PuOaE/mcluVLerIbMylEcIFY67laE8Qqhw3K0KZRFChWNmRSiLECocM7NDWYVQ4ShmhrIKocJRzAolhlDhCGaEEkOocAQzQokhVDg23BPKZggVjg33hLIZQoVjw2goT0OocDwxEsrTECocT/SG8jKECscLPaG8DKHC8YI3lK4QKhwdPKF0hVDh6OAJpSuECkens1C6Q6hwdDoLpTuECkenVii7Qqhw7ECh7AqhwrGDhrI7hArHTnkou0OocOx0C+VQCBWOAyyCQyFUOA6wCA6FUOEYCcdIOEbCMRKOkXCMhGOcbfsFaeeG+Fh59YsAAAAASUVORK5CYII=" alt="*" />
+            </div>
+        </div>
+        <div id="resourceBar" class="horizontalBar topBar pointable" ondblclick="Terrain.UI.Slide('#resourceBar', Terrain.UI.Horientation.horizontal, Terrain.UI.Direction.top);">
+            <div class="leftFloat">
+                <div id="populationResource" title="Population" class="barItem">
+                    <img id="populationIcon" src="Assets/Icons/face.png" class="horizontalBarImage" alt="P">
+                    <div id="population" class="barText"></div>
+                </div>
+                <div id="manpowerResource" title="Manpower" class="barItem">
+                    <img id="manpowerIcon" src="Assets/Icons/hammer.png" class="horizontalBarImage" alt="M">
+                    <div id="unemployedManpower" class="barText"></div> <div class="barText">/</div> <div id="manpower" class="barText"></div>
+                </div>
+                <div id="foodResource" title="Food" class="barItem">
+                    <img id="foodIcon" src="Assets/Icons/ham.png" class="horizontalBarImage" alt="F">
+                    <div id="food" class="barText"></div> <div class="barText">/</div> <div id="foodLimit" class="barText"></div>
+                </div>
+                <div id="resourceWood" title="Wood" class="barItem">
+                    <img id="woodIcon" src="Assets/Icons/log.png" class="horizontalBarImage" alt="W">
+                    <div id="wood" class="barText"></div>
+                </div>
+            </div>
+        </div>
+        <div id="builderBar" class="verticalBar rightBar pointable" ondblclick="Terrain.UI.Slide('#builderBar', Terrain.UI.Horientation.vertical, Terrain.UI.Direction.right);">
+            <div class="barItem">
+                <button title="Thatched hut" id="thatchedBuildingButton" type="button" class="barButton pointable" onclick="Terrain.UI.UiManager.GetInstance().BuildBuilding(Terrain.MapElement.MapElementType.thatchedBuilding)">
+                    <img id="thatchedHutIcon" class="verticalBarImage" src="Assets/Icons/buildings/thatchedHut.png" alt="TH">
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="742c35fe-977b-4760-a8ef-61b8744ea4be" ChangeDateTime="06/23/2014 15:18:40">
+    <Property Name="ElementName" Value="[dbo].[Tiles].[json]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Tiles]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Json" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="560cbd5c-7f90-4e39-b575-d2de8eca273e" ChangeDateTime="06/23/2014 15:19:17">
+    <Property Name="ElementName" Value="[dbo].[Tiles].[Json]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Tiles]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="JsonCellStructArray" />
+  </Operation>
+</Operations>

@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="complexplanet.cpp" />
+    <ClCompile Include="complexplanet_original.cpp" />
+    <ClCompile Include="noiseutils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="COPYING.txt" />
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="complexplanet.h" />
+    <ClInclude Include="include\noise\basictypes.h" />
+    <ClInclude Include="include\noise\exception.h" />
+    <ClInclude Include="include\noise\interp.h" />
+    <ClInclude Include="include\noise\latlon.h" />
+    <ClInclude Include="include\noise\mathconsts.h" />
+    <ClInclude Include="include\noise\misc.h" />
+    <ClInclude Include="include\noise\model\cylinder.h" />
+    <ClInclude Include="include\noise\model\line.h" />
+    <ClInclude Include="include\noise\model\model.h" />
+    <ClInclude Include="include\noise\model\plane.h" />
+    <ClInclude Include="include\noise\model\sphere.h" />
+    <ClInclude Include="include\noise\module\abs.h" />
+    <ClInclude Include="include\noise\module\add.h" />
+    <ClInclude Include="include\noise\module\billow.h" />
+    <ClInclude Include="include\noise\module\blend.h" />
+    <ClInclude Include="include\noise\module\cache.h" />
+    <ClInclude Include="include\noise\module\checkerboard.h" />
+    <ClInclude Include="include\noise\module\clamp.h" />
+    <ClInclude Include="include\noise\module\const.h" />
+    <ClInclude Include="include\noise\module\curve.h" />
+    <ClInclude Include="include\noise\module\cylinders.h" />
+    <ClInclude Include="include\noise\module\displace.h" />
+    <ClInclude Include="include\noise\module\exponent.h" />
+    <ClInclude Include="include\noise\module\invert.h" />
+    <ClInclude Include="include\noise\module\max.h" />
+    <ClInclude Include="include\noise\module\min.h" />
+    <ClInclude Include="include\noise\module\module.h" />
+    <ClInclude Include="include\noise\module\modulebase.h" />
+    <ClInclude Include="include\noise\module\multiply.h" />
+    <ClInclude Include="include\noise\module\perlin.h" />
+    <ClInclude Include="include\noise\module\power.h" />
+    <ClInclude Include="include\noise\module\ridgedmulti.h" />
+    <ClInclude Include="include\noise\module\rotatepoint.h" />
+    <ClInclude Include="include\noise\module\scalebias.h" />
+    <ClInclude Include="include\noise\module\scalepoint.h" />
+    <ClInclude Include="include\noise\module\select.h" />
+    <ClInclude Include="include\noise\module\spheres.h" />
+    <ClInclude Include="include\noise\module\terrace.h" />
+    <ClInclude Include="include\noise\module\translatepoint.h" />
+    <ClInclude Include="include\noise\module\turbulence.h" />
+    <ClInclude Include="include\noise\module\voronoi.h" />
+    <ClInclude Include="include\noise\noise.h" />
+    <ClInclude Include="include\noise\noisegen.h" />
+    <ClInclude Include="include\noise\vectortable.h" />
+    <ClInclude Include="noiseutils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Data\biomeaxes.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\noise\libnoise_vs2010.vcxproj">
+      <Project>{263c5882-d85e-4a7a-99f0-ca50afe5d971}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D96E324D-4BA6-4AF0-BC95-50B1D5BD6A43}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ComplexTerrain</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v100</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v100</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetExt>.dll</TargetExt>
+    <OutDir>.\win32\Release</OutDir>
+    <IntDir>.\win32\Release</IntDir>
+    <TargetName>ComplexTerrain</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetExt>.dll</TargetExt>
+    <OutDir>.\win32\Release</OutDir>
+    <IntDir>.\win32\Release</IntDir>
+    <LibraryPath>E:\Freelance\3dWebGL\3dWebGLSVN\TerrainGenerator\trunk\TerrainGeneratorTS\noise\win32\Release;$(LibraryPath)</LibraryPath>
+    <TargetName>ComplexTerrain</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;BOOST_ALL_DYN_LINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>./include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libnoise.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>./include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <OptimizeReferences>false</OptimizeReferences>
+      <AdditionalDependencies>libnoise.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

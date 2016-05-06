@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Terrain generator</title>
+    <script type="text/javascript">
+        function writeViewPort() {
+            var ua = navigator.userAgent;
+            if (ua.indexOf("Android") >= 0 && ua.indexOf("AppleWebKit") >= 0) {
+                var webkitVersion = parseFloat(ua.slice(ua.indexOf("AppleWebKit") + 12));
+                // targets android browser, not chrome browser (http://jimbergman.net/webkit-version-in-android-version/)
+                if (webkitVersion < 535) {
+                    document.write('<meta name="viewport" content="initial-scale=1" />');
+                }
+            }
+        }
+
+        writeViewPort();
+    </script>
+
+    <link rel="stylesheet" href="Style/BasicConventions.css" type="text/css" />
+    <link rel="stylesheet" href="Style/Canvas.css" type="text/css" />
+
+    <script src="Scripts/forEachSupport.js"></script>
+    <script src="Scripts/jquery-2.1.1.min.js"></script>
+    <script src="Scripts/babylon.2.0-alpha.debug.js"></script>
+
+    <script src="Scripts/Starter.js"></script>
+
+    <script src="Scripts/Utilities/CountDownEvent.js"></script>
+    <script src="Scripts/Utilities/Base64.js"></script>
+
+    <script src="Scripts/D3Models/I3DModelsContainer.js"></script>
+    <script src="Scripts/D3Models/Base3DModelsContainer.js"></script>
+    <script src="Scripts/D3Models/Vegetation3DModelsContainer.js"></script>
+    <script src="Scripts/D3Models/Animal3DModelsContainer.js"></script>
+
+    <script src="Scripts/Tiles/CoordinateSystemHelps.js"></script>
+    <script src="Scripts/Tiles/Tile.js"></script>
+    <script src="Scripts/Tiles/TileImage.js"></script>
+    <script src="Scripts/Tiles/TilesDiscovery.js"></script>
+    <script src="Scripts/Tiles/TilesManager.js"></script>
+
+    <script src="Scripts/Materials/WaterMaterial.js"></script>
+    <script src="Scripts/Materials/TerrainMaterial.js"></script>
+
+    <script src="Scripts/Environment/Sky.js"></script>
+    <script src="Scripts/Environment/Water.js"></script>
+    <script src="Scripts/Environment/Tree.js"></script>
+
+    <script src="Scripts/Account/SynchronizerManager.js"></script>
+    <script src="Scripts/Account/ResourceManager.js"></script>
+    <script src="Scripts/Account/WorkersManager.js"></script>
+    <script src="Scripts/Account/Model/Resource.js"></script>
+    <script src="Scripts/Account/Model/Worker.js"></script>
+    <script src="Scripts/Account/Model/WorkersAllocation.js"></script>
+</head>
+<body>
+    <!--<div id="content"></div>-->
+    <div id="notSupported" class="hidden">Your browser does not support WebGL :(</div>
+    <canvas id="renderCanvas"></canvas>
+    <div id="fps"></div>
+    <div id="currentPosition"></div>
+    <div id="currentPositionTerrainAltitude"></div>
+    <div id="miniMapContainer">
+        <img id="imageMiniMap">
+        <img id="redTriangle" class="hidden" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAA0CAYAAADi1poDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9kCDQkqGXWeM50AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAGHRFWHRTb2Z0d2FyZQBwYWludC5uZXQgNC4wLjVlhTJlAAABjklEQVRYR83UwU3EMBCF4UjcaYE6KIRCaIRCKIQ6aIE7EnikbGQ//07GXpvh8B3ytNnJ6d9+tu1fwTESjpFwjIRjJBwj4RgJx0g4RsofPpKfIHa7+qCXhH78F+x29UEPyWdCL6xkN+129UHmNaGXVrKbxzfkH2Mek6+EXlzBbtnN4xvyj7l5S+jlFexWcb942D0l3wn9wUx2w24V94uHzHtCfzKT3ahuV8PuOaE/mcluVLerIbMylEcIFY67laE8Qqhw3K0KZRFChWNmRSiLECocM7NDWYVQ4ShmhrIKocJRzAolhlDhCGaEEkOocAQzQokhVDg23BPKZggVjg33hLIZQoVjw2goT0OocDwxEsrTECocT/SG8jKECscLPaG8DKHC8YI3lK4QKhwdPKF0hVDh6OAJpSuECkens1C6Q6hwdDoLpTuECkenVii7Qqhw7ECh7AqhwrGDhrI7hArHTnkou0OocOx0C+VQCBWOAyyCQyFUOA6wCA6FUOEYCcdIOEbCMRKOkXCMhGOcbfsFaeeG+Fh59YsAAAAASUVORK5CYII=" />
+        <!--<div id="redDot" class="hidden"> OBSOLETE
+            <svg height="10" width="10">
+                <circle r="5" fill="red" />
+                Sorry, your browser does not support inline SVG.
+            </svg>
+        </div>-->
+    </div>
+    <!--<div id="footer"> DISABLED
+        <div id="footerLeft">
+            <div id="resourcePopulation">
+                <img src="Assets/Icons/populationIcon.png" class="" id="populationIcon" alt="P">
+                <div id="population"></div>
+            </div>
+            <div id="resourceFood">
+                <img src="Assets/Icons/foodIcon.png" class="" id="foodIcon" alt="F">
+                <div id="food"></div>
+            </div>
+            <div id="resourceWood">
+                <img src="Assets/Icons/woodIcon.png" class="" id="woodIcon" alt="W">
+                <div id="wood"></div>
+            </div>
+            <div id="resourceStone">
+                <img src="Assets/Icons/stoneIcon.png" class="" id="stoneIcon" alt="S">
+                <div id="stone"></div>
+            </div>
+        </div>
+        <div id="footerRight"></div>
+    </div>-->
+</body>
+</html>

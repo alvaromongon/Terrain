@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Terrain generator</title>
+    <script type="text/javascript">
+        function writeViewPort() {
+            var ua = navigator.userAgent;
+            if (ua.indexOf("Android") >= 0 && ua.indexOf("AppleWebKit") >= 0) {
+                var webkitVersion = parseFloat(ua.slice(ua.indexOf("AppleWebKit") + 12));
+                // targets android browser, not chrome browser (http://jimbergman.net/webkit-version-in-android-version/)
+                if (webkitVersion < 535) {
+                    document.write('<meta name="viewport" content="initial-scale=1" />');
+                }
+            }
+        }
+
+        writeViewPort();
+
+        window.onload = function () {
+            var information = document.getElementById("information");
+            var registeringForm = document.getElementById("registeringForm");
+            var loggingForm = document.getElementById("loggingForm");
+            Terrain.SystemLoader.GetInstance(information, registeringForm, loggingForm).Load();
+        };
+    </script>
+
+    <link rel="stylesheet" href="Style/BasicConventions.css" type="text/css" />
+    <link rel="stylesheet" href="Style/Canvas.css" type="text/css" />
+    
+    <script src="Scripts/jquery-2.1.4.js"></script>
+    <script src="Scripts/babylon.2.0-alpha.debug.js"></script>
+
+    <script src="Scripts/SystemLoader.js"></script>
+    
+    <script src="Scripts/Utilities/StringHelper.js"></script>    
+    
+    <script src="Scripts/Account/AccountManager.js"></script>
+
+    <script src="Scripts/HttpClients/BaseHttpClient.js"></script>
+    <script src="Scripts/HttpClients/AccountHttpClient.js"></script>    
+    <script src="Scripts/HttpClients/TilesHttpClient.js"></script>    
+
+</head>
+<body>
+    <div id="LogInControls">
+        <div id="information" class="hidden">Your browser does not support WebGL :(</div>
+        <form id="registeringForm" name="register" class="hidden">
+            Username: <input type="text" name="accountEmail" />
+            Password: <input type="password" name="accountPassword" />
+            Confirm password: <input type="password" name="confirmAccountPassword" />
+            <input type="button" onclick="Terrain.SystemLoader.GetExistingInstance().Register(this.form);" value="Register" />
+            <input type="reset" value="Cancel" />
+        </form>
+        <form id="loggingForm" name="login" class="hidden">
+            Username: <input type="text" name="accountEmail" />
+            Password: <input type="password" name="accountPassword" />
+            <input type="button" onclick="Terrain.SystemLoader.GetExistingInstance().LogIn(this.form);" value="Login" />
+            <input type="button" onclick="Terrain.SystemLoader.GetExistingInstance().NotRegistered();" value="Register" />
+            <input type="reset" value="Cancel" />
+        </form>
+    </div>    
+    
+    <div id="Eginecontrols" class="hidden">    
+        <canvas id="renderCanvas"></canvas>
+        <div id="fps"></div>
+        <div id="currentPosition"></div>
+        <div id="currentPositionTerrainAltitude"></div>
+        <div id="miniMapContainer">
+            <img id="imageMiniMap">
+            <img id="redTriangle" class="hidden" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAA0CAYAAADi1poDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9kCDQkqGXWeM50AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAGHRFWHRTb2Z0d2FyZQBwYWludC5uZXQgNC4wLjVlhTJlAAABjklEQVRYR83UwU3EMBCF4UjcaYE6KIRCaIRCKIQ6aIE7EnikbGQ//07GXpvh8B3ytNnJ6d9+tu1fwTESjpFwjIRjJBwj4RgJx0g4RsofPpKfIHa7+qCXhH78F+x29UEPyWdCL6xkN+129UHmNaGXVrKbxzfkH2Mek6+EXlzBbtnN4xvyj7l5S+jlFexWcb942D0l3wn9wUx2w24V94uHzHtCfzKT3ahuV8PuOaE/mcluVLerIbMylEcIFY67laE8Qqhw3K0KZRFChWNmRSiLECocM7NDWYVQ4ShmhrIKocJRzAolhlDhCGaEEkOocAQzQokhVDg23BPKZggVjg33hLIZQoVjw2goT0OocDwxEsrTECocT/SG8jKECscLPaG8DKHC8YI3lK4QKhwdPKF0hVDh6OAJpSuECkens1C6Q6hwdDoLpTuECkenVii7Qqhw7ECh7AqhwrGDhrI7hArHTnkou0OocOx0C+VQCBWOAyyCQyFUOA6wCA6FUOEYCcdIOEbCMRKOkXCMhGOcbfsFaeeG+Fh59YsAAAAASUVORK5CYII=" />
+            <!--<div id="redDot" class="hidden"> OBSOLETE
+            <svg height="10" width="10">
+                <circle r="5" fill="red" />
+                Sorry, your browser does not support inline SVG.
+            </svg>
+        </div>-->
+        </div>
+    </div>
+
+</body>
+</html>
