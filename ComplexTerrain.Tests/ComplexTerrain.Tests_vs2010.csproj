@@ -55,9 +55,9 @@
     <Compile Include="BiomeTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ComplexTerrain\ComplexTerrain_vs2010.vcxproj">
+    <ProjectReference Include="..\ComplexTerrain\ComplexTerrain.vcxproj">
       <Project>{D96E324D-4BA6-4AF0-BC95-50B1D5BD6A43}</Project>
-      <Name>ComplexTerrain_vs2010</Name>
+      <Name>ComplexTerrain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
