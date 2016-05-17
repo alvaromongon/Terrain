@@ -1,4 +1,6 @@
-﻿namespace Tribes.Subscribers.Manager
+﻿using Tribes.Tiles.Contract;
+
+namespace Tribes.Tiles.Manager
 {
     public interface IPositionService
     {

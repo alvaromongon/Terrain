@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{902BC2B4-D040-4B95-B3FA-CAA3F4E732EC}</ProjectGuid>
+    <ProjectGuid>{94796CA9-673A-4A3E-A9CD-DF526687BA79}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tribes.Tiles.Manager</RootNamespace>
-    <AssemblyName>Tribes.Tiles.Manager</AssemblyName>
+    <RootNamespace>Tribes.Tiles.Contract</RootNamespace>
+    <AssemblyName>Tribes.Tiles.Contract</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,26 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPositionService.cs" />
-    <Compile Include="ITilesManager.cs" />
+    <Compile Include="CellMetatada.cs" />
+    <Compile Include="Cell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Internals\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Tribes.TerrainGenerator.Services\Tribes.Tiles.Generator.csproj">
-      <Project>{d30a8a6e-b0be-4ccb-b0b1-9589acfecaac}</Project>
-      <Name>Tribes.Tiles.Generator</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tribes.TerrainGenerator.Storage\Tribes.Tiles.Storage.csproj">
-      <Project>{f6d719c6-cbd2-4e8b-9ad4-1bfb67e58738}</Project>
-      <Name>Tribes.Tiles.Storage</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tribes.Tiles.Contract\Tribes.Tiles.Contract.csproj">
-      <Project>{94796ca9-673a-4a3e-a9cd-df526687ba79}</Project>
-      <Name>Tribes.Tiles.Contract</Name>
-    </ProjectReference>
+    <Compile Include="TileConfiguration.cs" />
+    <Compile Include="TileMetadata.cs" />
+    <Compile Include="TilePosition.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

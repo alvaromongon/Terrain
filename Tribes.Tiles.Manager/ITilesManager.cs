@@ -1,13 +1,15 @@
-﻿namespace Tribes.TerrainGenerator.Storage
+﻿using Tribes.Tiles.Contract;
+
+namespace Tribes.Tiles.Manager
 {
     public interface ITilesManager
     {
-        CellStruct[] GetTileDataFor(TileMetadata tileMetadata);
+        Cell[] GetTileDataFor(TileMetadata tileMetadata);
 
         byte[] GetTileImageFor(TileMetadata tileMetadata);
 
-        CellStruct GetCellDataFor(TileMetadata tileMetadata, int index);
+        Cell GetCellDataFor(CellMetatada cellMetatada);
 
-        void SetCellDataFor(TileMetadata tileMetadata, int index, CellStruct cellStruct);
+        void SetCellDataFor(CellMetatada cellMetatada, Cell cell);
     }
 }
