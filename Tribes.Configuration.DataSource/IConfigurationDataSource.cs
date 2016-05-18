@@ -4,9 +4,7 @@
 
     public interface IConfigurationDataSource
     {
-        Task CreateStaticAsync(string path, string data);
-
-        Task CreateDynamicAsync(string path, string data);
+        Task CreateAsync(string path, string data);
 
         Task<string> ListenAsync(string path);
     }
