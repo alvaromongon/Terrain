@@ -1,48 +1,50 @@
-﻿using System.Threading.Tasks;
-using org.apache.zookeeper;
-using System.Collections.Generic;
-using System.Text;
-
-
-namespace Tribes.Configuration.DataSource.Zookeeper
+﻿namespace Tribes.Configuration.DataSource.Zookeeper
 {
+    using org.apache.zookeeper;
     using org.apache.zookeeper.data;
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Threading.Tasks;
+    public class ZookeeperConfigurationDataSource : IConfigurationDataSource
+    {        
+        private readonly IZookeeperClient zooKeeperClient;
 
-    internal class ZookeeperConfigurationDataSource : IConfigurationDataSource
-    {
-        private const string ZNodeToBeWatched = "/configuration/";
+        /// <summary>
+        /// Created in order to be able to test ListenAsync method in a pseudo unit test enviroment.
+        /// </summary>
+        public static WatcherEventHandler LastWatcher { get; set; }
 
-        private readonly ZooKeeper zooKeeper;
-
-        public ZookeeperConfigurationDataSource(string connectionString)
-        {            
-            this.zooKeeper = new ZooKeeper(connectionString + ZNodeToBeWatched, 3000, null);
+        public ZookeeperConfigurationDataSource(IZookeeperClient zookeeperClient)
+        {
+            this.zooKeeperClient = zookeeperClient;
         }
 
         public async Task CreateAsync(string path, string data)
         {
-            var stat = await this.zooKeeper.existsAsync(path);
+            var stat = await this.zooKeeperClient.existsAsync(path);
             if (stat == null)
             {
-                await this.zooKeeper.createAsync(path, Encoding.ASCII.GetBytes(data), new List<ACL>(), CreateMode.PERSISTENT).ConfigureAwait(false);
+                await this.zooKeeperClient.createAsync(path, Encoding.ASCII.GetBytes(data), new List<ACL>(), CreateMode.PERSISTENT).ConfigureAwait(false);
             }
             else
             {
-                await this.zooKeeper.setDataAsync(path, Encoding.ASCII.GetBytes(data)).ConfigureAwait(false);
-            }            
+                await this.zooKeeperClient.setDataAsync(path, Encoding.ASCII.GetBytes(data)).ConfigureAwait(false);
+            }
         }
 
         public async Task<string> ListenAsync(string path)
         {
             using (var watcher = new WatcherEventHandler())
             {
-                await this.zooKeeper.existsAsync(path, watcher).ConfigureAwait(false);
-                await watcher.waitToComplete().ConfigureAwait(false);
+                LastWatcher = watcher; // For testing
+                await this.zooKeeperClient.existsAsync(path, watcher).ConfigureAwait(false);
+                watcher.waitToComplete();
             }
 
-            var dataResult = await this.zooKeeper.getDataAsync(path).ConfigureAwait(false);
+            var dataResult = await this.zooKeeperClient.getDataAsync(path).ConfigureAwait(false);
 
-            return Encoding.ASCII.GetString(dataResult.Data);
+            return dataResult == null ? null : Encoding.ASCII.GetString(dataResult.Data);
         }
     }
 }

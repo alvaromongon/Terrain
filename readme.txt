@@ -1,4 +1,4 @@
-This solution is implement the terrain generator using type script.
+This solution implements the terrain generator using type script.
 
 - Contains:
 	- BabylonJS: (https://github.com/BabylonJS/Babylon.js/tree/master/Tools/BuildOurOwnBabylonJS/BabylonJS)

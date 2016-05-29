@@ -6,25 +6,19 @@ namespace Tribes.Configuration.DataSource.Zookeeper
     using System.Threading;
     using System.Threading.Tasks;
 
-    internal class WatcherEventHandler : Watcher, IDisposable
+    public class WatcherEventHandler : Watcher, IDisposable
     {
         private readonly CountdownEvent countDownEvent = new CountdownEvent(1);
 
-        internal async Task waitToComplete()
+        internal void waitToComplete()
         {
-            this.countDownEvent.Wait();
-            
-            //The latest version of the .Net Framework (v4.6) adds just that with the Task.CompletedTask static property
-            //Task.FromResult<object>(null);
+            this.countDownEvent.Wait();        
         }
 
-        public override async Task process(WatchedEvent @event)
+        public override Task process(WatchedEvent @event)
         {
             this.countDownEvent.Signal();
-
-            // TODO
-            //The latest version of the .Net Framework (v4.6) adds just that with the Task.CompletedTask static property
-            //return Task.FromResult<object>(null);
+            return Task.FromResult(0);
         }
 
         public void Dispose()
