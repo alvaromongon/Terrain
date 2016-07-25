@@ -1,4 +1,7 @@
-#:C:\Dev\git\Terrain\Tribes.Configuration.DataSource.Zookeeper.IntTests\Tribes.Configuration.DataSource.Zookeeper.IntTests.xproj
-C:\Dev\git\Terrain\Tribes.Configuration.DataSource.Zookeeper.IntTests\Tribes.Configuration.DataSource.Zookeeper.IntTests.xproj|C:\Dev\git\Terrain\Tribes.Configuration.DataSource.Zookeeper\Tribes.Configuration.DataSource.Zookeeper.xproj
-C:\Dev\git\Terrain\Tribes.Configuration.DataSource.Zookeeper.IntTests\Tribes.Configuration.DataSource.Zookeeper.IntTests.xproj|C:\Dev\git\Terrain\Tribes.Configuration.DataSource\Tribes.Configuration.DataSource.xproj
+#:C:\Dev\git\zookeeper\src\csharp\src\ZooKeeperNetEx.Recipes\ZooKeeperNetEx.Recipes.xproj
+C:\Dev\git\zookeeper\src\csharp\src\ZooKeeperNetEx.Recipes\ZooKeeperNetEx.Recipes.xproj|C:\Dev\git\zookeeper\src\csharp\src\ZooKeeperNetEx\ZooKeeperNetEx.xproj
+#:C:\Dev\git\Terrain\Tribes.Configuration.DataSource.Zookeeper\Tribes.Configuration.DataSource.Zookeeper.xproj
 C:\Dev\git\Terrain\Tribes.Configuration.DataSource.Zookeeper\Tribes.Configuration.DataSource.Zookeeper.xproj|C:\Dev\git\Terrain\Tribes.Configuration.DataSource\Tribes.Configuration.DataSource.xproj
+C:\Dev\git\Terrain\Tribes.Configuration.DataSource.Zookeeper\Tribes.Configuration.DataSource.Zookeeper.xproj|C:\Dev\git\zookeeper\src\csharp\src\ZooKeeperNetEx\ZooKeeperNetEx.xproj
+C:\Dev\git\Terrain\Tribes.Configuration.DataSource.Zookeeper\Tribes.Configuration.DataSource.Zookeeper.xproj|C:\Dev\git\zookeeper\src\csharp\src\ZooKeeperNetEx.Recipes\ZooKeeperNetEx.Recipes.xproj
+C:\Dev\git\zookeeper\src\csharp\src\ZooKeeperNetEx.Recipes\ZooKeeperNetEx.Recipes.xproj|C:\Dev\git\zookeeper\src\csharp\src\ZooKeeperNetEx\ZooKeeperNetEx.xproj

@@ -1089,33 +1089,6 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "ZooKeeperNetEx/3.4.8.4": {
-        "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "1.5.0-rc2-24027",
-          "System.Diagnostics.TraceSource": "4.0.0",
-          "System.Net.NameResolution": "4.0.0",
-          "System.Net.Sockets": "4.1.0"
-        },
-        "compile": {
-          "lib/netstandard1.3/ZooKeeperNetEx.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/ZooKeeperNetEx.dll": {}
-        }
-      },
-      "ZooKeeperNetEx.Recipes/3.4.8.4": {
-        "type": "package",
-        "dependencies": {
-          "ZooKeeperNetEx": "3.4.8.4"
-        },
-        "compile": {
-          "lib/netstandard1.3/ZooKeeperNetEx.Recipes.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/ZooKeeperNetEx.Recipes.dll": {}
-        }
-      },
       "Tribes.Configuration.DataSource/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.5",
@@ -1127,6 +1100,35 @@
         },
         "runtime": {
           "netstandard1.5/Tribes.Configuration.DataSource.dll": {}
+        }
+      },
+      "ZooKeeperNetEx/3.4.8.4": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.3",
+        "dependencies": {
+          "NETStandard.Library": "1.5.0",
+          "System.Diagnostics.TraceSource": "4.0.0",
+          "System.Net.NameResolution": "4.0.0",
+          "System.Net.Sockets": "4.1.0"
+        },
+        "compile": {
+          "netstandard1.3/ZooKeeperNetEx.dll": {}
+        },
+        "runtime": {
+          "netstandard1.3/ZooKeeperNetEx.dll": {}
+        }
+      },
+      "ZooKeeperNetEx.Recipes/3.4.8.4": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.3",
+        "dependencies": {
+          "ZooKeeperNetEx": "3.4.8.4"
+        },
+        "compile": {
+          "netstandard1.3/ZooKeeperNetEx.Recipes.dll": {}
+        },
+        "runtime": {
+          "netstandard1.3/ZooKeeperNetEx.Recipes.dll": {}
         }
       }
     }
@@ -4025,38 +4027,20 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "ZooKeeperNetEx/3.4.8.4": {
-      "sha512": "ZvsAg6HM8jApILaFZlpInEXZ7vjaYrO4iLZt1aUVD2IydJsCR4264wNmKsilTBMoyopgYaWv8N7gue3idWhpBw==",
-      "type": "package",
-      "files": [
-        "ZooKeeperNetEx.3.4.8.4.nupkg.sha512",
-        "ZooKeeperNetEx.nuspec",
-        "lib/net40/ZooKeeperNetEx.dll",
-        "lib/net40/ZooKeeperNetEx.xml",
-        "lib/net45/ZooKeeperNetEx.dll",
-        "lib/net45/ZooKeeperNetEx.xml",
-        "lib/netstandard1.3/ZooKeeperNetEx.dll",
-        "lib/netstandard1.3/ZooKeeperNetEx.xml"
-      ]
-    },
-    "ZooKeeperNetEx.Recipes/3.4.8.4": {
-      "sha512": "5dXEHpEYYTT4GEecYuz7Bqqn2lVZDHh4tCupjHRMXg1APmaxPrKxqbKW/gjqO/wohryO63yn+uofgbKpIpDuhA==",
-      "type": "package",
-      "files": [
-        "ZooKeeperNetEx.Recipes.3.4.8.4.nupkg.sha512",
-        "ZooKeeperNetEx.Recipes.nuspec",
-        "lib/net40/ZooKeeperNetEx.Recipes.dll",
-        "lib/net40/ZooKeeperNetEx.Recipes.xml",
-        "lib/net45/ZooKeeperNetEx.Recipes.dll",
-        "lib/net45/ZooKeeperNetEx.Recipes.xml",
-        "lib/netstandard1.3/ZooKeeperNetEx.Recipes.dll",
-        "lib/netstandard1.3/ZooKeeperNetEx.Recipes.xml"
-      ]
-    },
     "Tribes.Configuration.DataSource/1.0.0": {
       "type": "project",
       "path": "../Tribes.Configuration.DataSource/project.json",
       "msbuildProject": "../Tribes.Configuration.DataSource/Tribes.Configuration.DataSource.xproj"
+    },
+    "ZooKeeperNetEx/3.4.8.4": {
+      "type": "project",
+      "path": "../../zookeeper/src/csharp/src/ZooKeeperNetEx/project.json",
+      "msbuildProject": "../../zookeeper/src/csharp/src/ZooKeeperNetEx/ZooKeeperNetEx.xproj"
+    },
+    "ZooKeeperNetEx.Recipes/3.4.8.4": {
+      "type": "project",
+      "path": "../../zookeeper/src/csharp/src/ZooKeeperNetEx.Recipes/project.json",
+      "msbuildProject": "../../zookeeper/src/csharp/src/ZooKeeperNetEx.Recipes/ZooKeeperNetEx.Recipes.xproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4064,7 +4048,7 @@
       "NETStandard.Library >= 1.5.0-rc2-24027",
       "Tribes.Configuration.DataSource >= 1.0.0-*",
       "ZooKeeperNetEx >= 3.4.8.4",
-      "ZooKeeperNetEx.Recipes >= 3.4.8.4"
+      "ZooKeeperNetEx.Recipes >= 3.4.7.7"
     ],
     ".NETStandard,Version=v1.5": []
   },
